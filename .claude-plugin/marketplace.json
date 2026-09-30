@@ -1,0 +1,15 @@
+{
+  "name": "erp-doc-voice",
+  "description": "Skill van phong tai lieu tu van ERP tieng Viet, dung chung cho team",
+  "owner": {
+    "name": "Dinh Tien Dung",
+    "url": "https://github.com/dinhtiendungerp"
+  },
+  "plugins": [
+    {
+      "name": "erp-doc-voice",
+      "source": ".",
+      "description": "Agent skill viet tai lieu tu van ERP bang tieng Viet ma khong mang giong van AI. 37 nhom dau hieu, 13 nhom theo Wikipedia Signs of AI writing va 24 nhom rut tu tai lieu du an that."
+    }
+  ]
+}

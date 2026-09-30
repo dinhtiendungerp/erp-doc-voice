@@ -69,16 +69,31 @@ natural-writing/
     ├── cum-tu-can-tranh.md         11 nhóm từ và cụm từ, tiếng Việt và tiếng Anh, kèm từ thay thế
     ├── dau-vet-ky-thuat.md         9 nhóm vết định dạng và mã đánh dấu của từng chatbot
     └── vi-du-truoc-sau.md          14 ví dụ sửa trước và sau trong ngữ cảnh tài liệu ERP
+team-skill/
+├── router-SKILL.md                 SKILL.md của bản upload, mỗi lần gọi tải natural-writing/ từ repo
+├── build.py                        đóng gói router và bản chụp natural-writing/ thành zip
+└── natural-writing.zip             file upload cho Claude.ai, Cowork, Claude Desktop
+.claude-plugin/
+├── plugin.json                     khai báo plugin cho Claude Code
+└── marketplace.json                để chạy /plugin marketplace add
 ```
 
 SKILL.md luôn được nạp khi skill kích hoạt. Ba file trong `references/` chỉ đọc khi cần, theo hướng dẫn ghi ở cuối SKILL.md.
 
 ## Cài đặt
 
-Claude Code:
+Claude Code, cài dạng plugin:
 
 ```
 /plugin marketplace add dinhtiendungerp/erp-doc-voice
+/plugin install erp-doc-voice@erp-doc-voice
+```
+
+Cài qua plugin thì skill mang tên `erp-doc-voice:natural-writing`. Muốn tự nhận bản mới mỗi khi repo có commit thì bật auto-update: gõ `/plugin`, vào tab Marketplaces, chọn `erp-doc-voice`, bật Enable auto-update. Không bật thì cập nhật tay trong terminal:
+
+```
+claude plugin marketplace update erp-doc-voice
+claude plugin update erp-doc-voice@erp-doc-voice
 ```
 
 Skills CLI, cài cho mọi dự án:
@@ -87,7 +102,7 @@ Skills CLI, cài cho mọi dự án:
 npx skills add dinhtiendungerp/erp-doc-voice --global
 ```
 
-Claude Desktop hoặc Claude.ai: tải repo dạng ZIP rồi upload phần `natural-writing/` làm skill.
+Claude.ai, Cowork, Claude Desktop: tải [team-skill/natural-writing.zip](team-skill/natural-writing.zip) rồi upload trong phần Skills của Settings. Bản này không chứa quy tắc viết. Mỗi lần được gọi, nó tải `natural-writing/` mới nhất từ repo, nên repo cập nhật thì không phải upload lại. Muốn tải được thì môi trường phải ra được `raw.githubusercontent.com`, qua chạy code có mạng hoặc công cụ tải web. Không ra được thì skill dùng bản chụp đóng sẵn trong zip và báo ngày chụp.
 
 Cài tay: copy thư mục `natural-writing/` vào thư mục skill của agent đang dùng, thường là `~/.claude/skills/`.
 
@@ -112,6 +127,18 @@ Skill có một mục riêng về chuyện này, tóm tắt lại ở đây vì 
 Không dấu hiệu đơn lẻ nào là bằng chứng. Người viết thật cũng dùng gạch ngang dài, cũng liệt kê ba ý. Sức mạnh nằm ở mật độ và tổ hợp. Nghiên cứu mà bài Wikipedia dẫn cho thấy người bình thường phân biệt văn AI với văn người không hơn gì đoán mò, người dùng LLM nhiều đạt khoảng 90%, tức là cứ 10 lần khẳng định thì sai 1. Phần mềm phát hiện AI có tỉ lệ lỗi không nhỏ.
 
 Nếu né sạch mọi thứ trong danh sách thì câu văn sẽ cụt lủn và đều tăm tắp, mà kiểu gượng đó cũng là một dấu vết.
+
+## Cập nhật nội dung
+
+Sửa trong `natural-writing/`, đóng gói lại bản chụp trong zip, rồi commit và push cả hai:
+
+```
+python team-skill/build.py
+```
+
+Người dùng bản zip nhận nội dung mới ở lần gọi skill kế tiếp, chậm nhất khoảng 5 phút vì GitHub lưu đệm file raw. Người dùng plugin nhận khi auto-update chạy hoặc khi chạy lệnh update ở trên.
+
+`plugin.json` cố ý không có trường `version`. Có trường này thì Claude Code giữ mọi người ở bản đã cài cho tới khi đổi số, push bao nhiêu commit cũng vậy. Không có thì phiên bản tính theo commit.
 
 ## Nguồn và giấy phép
 
