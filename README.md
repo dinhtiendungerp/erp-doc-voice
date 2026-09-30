@@ -64,7 +64,7 @@ Và câu kiểm tra cuối cho cả đoạn: dán nguyên đoạn này sang tài
 
 ```
 natural-writing/
-├── SKILL.md                        754 dòng, 37 nhóm dấu hiệu và quy trình rà 8 bước
+├── SKILL.md                        774 dòng, 37 nhóm dấu hiệu và quy trình rà 8 bước
 └── references/
     ├── cum-tu-can-tranh.md         11 nhóm từ và cụm từ, tiếng Việt và tiếng Anh, kèm từ thay thế
     ├── dau-vet-ky-thuat.md         9 nhóm vết định dạng và mã đánh dấu của từng chatbot

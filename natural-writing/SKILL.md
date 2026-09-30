@@ -590,6 +590,26 @@ Có sáu chỗ sửa:
 
 Kiểm tra: đọc tin nhắn trên khung chat điện thoại. Có dấu đầu dòng nào đứng trước một câu nói với người đọc không? Có chữ nào người dùng phải dịch ngược ra tiếng Anh mới tìm được trên màn hình không?
 
+**Cùng nhóm: tin nhắn Teams nội bộ đề xuất giải pháp cho người trong nhóm dự án.** Tình huống ở SKV, tháng 09/2026: kho xuất sai lô so với hệ thống. Chị Liên (consultant phụ trách) gợi ý upload lô thực tế bằng Excel lên Warehouse Shipment trước khi post. Bản nháp máy viết có sáu đoạn: lý do cách của chị vướng, đề xuất, "em đã test trên sandbox" kèm kết quả, phần kiểm soát trả hàng, điều kiện phía kho, và câu hẹn viết FDD. Dũng gửi bản sau:
+
+> Chị Liên ơi em có trao đổi với chị Tú thì cách up lot bằng Excel lên Warehouse Shipment trước khi post vẫn vướng chỗ cũ á chị, kho phải có hàng gấp cho xe thì họ xuất đại theo FEFO :D mà hầu như các đơn đều rush nên ko có thông tin lot theo thực tế trước post á, kể cả trên excel, thông thường họ ghi nhanh trên giấy.
+>
+> Nên chỗ này chị xem giải pháp như vầy coi đc ko nhé ạ. Kho vẫn post xuất theo lot hệ thống gợi ý để có hóa đơn đi hàng. Trong ngày, chị Tú upload file Excel lô thực tế (số phiếu xuất, mã hàng, lot thực tế, số lượng, bin), hệ thống theo 1 số logic mà mình custom, tự động sinh thêm 1 cặp lot điều chỉnh dựa theo lot đã post thông qua Item Journal, Entry Type = Sales. Ví dụ:
+> - xuất bán lot A: 10pcs
+> - Item Journal: sales -10pcs lot A và dùng apply to entry, Source Type = Customer, Source No = mã khách hàng
+> - Item Journal: sales 10pcs lot B và dùng Source Type = Customer, Source No = mã khách hàng
+
+Sáu chỗ khác bản nháp:
+
+- **Lý do bác một gợi ý thì dẫn đúng người đã xác nhận, và tả đúng hành vi đã thấy ở hiện trường.** "em có trao đổi với chị Tú", "xuất đại theo FEFO", "hầu như các đơn đều rush", "họ ghi nhanh trên giấy". Bản nháp viết chung chung "lúc gấp thì họ xuất đại" và thêm lý do hóa đơn phải đi cùng hàng, điều người nhận đã biết. Máy không được tự bịa câu "em đã trao đổi với X" khi không biết; chỗ đó để người dùng điền.
+- **Người nhận là consultant thì nói bằng cơ chế BC, không nói "hệ thống tự sửa".** Item Journal, Entry Type = Sales, apply to entry, Source Type, Source No. Với người cùng nghề, cơ chế cụ thể thuyết phục hơn lời mô tả kết quả, và cho họ phản biện được ngay. Cùng ý với nhóm 21: hạ mức kỹ thuật là cho khách, không phải cho đồng nghiệp.
+- **Ví dụ số dạng bút toán thì để bullet được.** Mỗi dòng là một bút toán, không phải một câu nói với người đọc, nên không trái với quy tắc bullet của tin nhắn Zalo ở trên.
+- **Đề xuất cho người phụ trách thì hỏi ý, không trình bày như việc đã xong.** "chị xem giải pháp như vầy coi đc ko nhé ạ", không có "em đã test", không hẹn viết FDD. Người phụ trách còn phải chốt hướng, báo trước kết quả test và bước tiếp theo là đi trước họ một bước.
+- **Một tin nhắn một ý.** Phần kiểm soát trả hàng và điều kiện phía kho bị bỏ, để dành cho lượt sau hoặc cho FDD. Tin nhắn chỉ trả lời đúng gợi ý chị Liên vừa đưa.
+- **Dùng từ team dùng**: "lot" chứ không "lô", "pcs", "rush", "up". Giọng nội bộ: "á chị", "coi đc ko", có thể có ":D".
+
+Kiểm tra: tin nhắn gửi người phụ trách có câu nào báo việc mình đã làm hay hẹn việc mình sẽ làm khi họ chưa gật đầu không? Người nhận là consultant mà câu giải pháp chỉ có "hệ thống tự xử lý", không có chứng từ, field hay giá trị nào không?
+
 ### 37. Ghi chú viết cho người lập file, không cho người nhận
 
 Nhóm 33 bắt đoạn giải thích cách đọc bảng. Nhóm này bắt ghi chú trong từng ô: cột Ghi chú, cột Phụ thuộc, dòng tổng cộng, bảng giả định. Người lập file hay để lại ở đó những câu chỉ có ích cho chính mình lúc tính toán. Bị bắt trên bản WBS ACP tháng 09/2026, với phản hồi "sao lại đưa mấy thông tin kiểu này vô file gửi khách", rồi "sao vẫn còn mấy kiểu ghi chú này".
@@ -700,7 +720,7 @@ Viết trước, rà sau. Vừa viết vừa tự kiểm duyệt thì văn sẽ 
    - Trả lời thắc mắc của người dùng: câu đầu có gỡ đúng chỗ họ hiểu lầm không, có số chứng từ cụ thể nào khiến họ hỏi lại "sao lại là số này" không?
    - Đoạn cuối có đang tóm tắt lại bài không? Email thì kết bằng việc cần làm, tài liệu thì dừng ở mục cuối.
    - Hướng dẫn xử lý gửi người dùng: đã chỉ còn tình huống, hành động và danh sách `Field = giá trị` chưa, hay vẫn còn số field, cơ chế, field để mặc định?
-   - Tin nhắn Zalo hoặc Teams: có bullet nào là một câu nói với người đọc không? Tên field, tên trang có bị dịch sang tiếng Việt không, trang cần mở đã ghi kèm status chưa? Câu cuối có đang nhắc lại cái lợi mà người hỏi đã biết không?
+   - Tin nhắn Zalo hoặc Teams: có bullet nào là một câu nói với người đọc không? Tên field, tên trang có bị dịch sang tiếng Việt không, trang cần mở đã ghi kèm status chưa? Câu cuối có đang nhắc lại cái lợi mà người hỏi đã biết không? Gửi đồng nghiệp consultant thì có nói bằng cơ chế BC chưa, có báo trước kết quả hay bước tiếp theo khi người phụ trách chưa chốt hướng không?
    - Định dạng có khớp phần còn lại của tài liệu và file gốc của khách không?
 5. **Lượt rà hình thức**: in đậm, bullet, heading, gạch ngang dài, nháy cong, emoji, mũi tên, dấu chấm phẩy, bảng thừa, quy ước màu ô trong file Excel. Với file Excel còn thêm: bốn dòng đầu của các sheet có giống nhau không, ô nào phải quấn dòng vì câu quá dài, cột nào rộng quá mức cần, nhóm cột đã phủ hết các cột chi tiết chưa.
 6. **Lượt rà nhịp**: đọc to. Câu dài xấp xỉ nhau thì trộn lại. Câu ghép quá hai vế bằng "và", "đồng thời", "nhằm", "qua đó", "từ đó" thì tách ra. Ngoại lệ: câu mô tả một bước lấy dữ liệu theo nhóm 31 được giữ đủ ba vế trong một câu. Không ép câu siêu ngắn 3-5 chữ vào tài liệu kỹ thuật; thỉnh thoảng một câu ngắn là đủ để đổi nhịp.
