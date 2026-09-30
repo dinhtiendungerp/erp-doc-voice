@@ -17,6 +17,7 @@ Mục lục:
 12. Tài liệu tích hợp gửi khách hàng và đối tác
 13. Email trao đổi phương án với khách
 14. Tài liệu kiến trúc và mô tả nhu cầu cho BA
+15. Hướng dẫn xử lý sự cố gửi người dùng
 
 ---
 
@@ -388,6 +389,68 @@ Thể loại tài liệu:
 > Tài liệu này chỉ mô tả hiện trạng và nhu cầu, không đề xuất giải pháp.
 >
 > Bốn phần: hệ thống hiện có, hiện trạng tại khách hàng, nhu cầu, dữ kiện đã kiểm chứng và câu hỏi chưa có đáp án.
+
+---
+
+## 15. Hướng dẫn xử lý sự cố gửi người dùng
+
+Ngữ cảnh: SO bên SKV gửi IC sang Hàng gửi bán. Khách hàng chưa được gán IC Partner nên gửi IC báo lỗi, hoặc gửi đi thì PO ra toàn dòng Comment. Cách xử lý là sửa đơn bằng config package. Người đọc là người dùng và key user.
+
+**Trước** (bản phân tích, đúng nội dung nhưng sai người đọc)
+
+> **2. Đầu phiếu chưa có IC.** Ngoài dòng như trên, cập nhật thêm bảng 36 Sales Header:
+>
+> | Bảng 36 Sales Header | Giá trị |
+> |---|---|
+> | 1 Document Type, 3 No. | khoá |
+> | 125 Sell-to IC Partner Code | `YSKH` |
+> | 126 Bill-to IC Partner Code | `YSKH` |
+> | 129 IC Direction | `Outgoing` (thường đã sẵn) |
+> | 123 Send IC Document | `Yes` |
+> | 124 IC Status | giữ `New` |
+>
+> Hai bẫy: Không được bỏ field 125, vì BC chỉ tạo giao dịch Outbox khi Sell-to IC Partner Code có giá trị... Đặt Validate Field = No, vì package áp field theo số thứ tự nên field 123 được validate trước 125...
+
+**Sau** (Dũng tự viết)
+
+> Trong trường hợp anh chị không gán IC Partner trong Customer thì lúc send SO IC báo lỗi này. Thì dùng config package update cho mấy field này nhé.
+>
+> Sales Header:
+> - Sell-to IC Partner Code = mã IC
+> - Bill-to IC Partner Code = mã IC
+> - Send IC Document = Yes
+>
+> Sales Line:
+> - IC Partner Ref. Type = Item
+> - IC Partner Reference = mã hàng
+
+Những gì đã bỏ: số field, bảng, cột khoá, field để mặc định (IC Direction, IC Status), giá trị của ca test (YSKH), phần giải thích bẫy. Những gì còn lại: tình huống người dùng nhận ra được, một câu hành động, và đúng năm field phải sửa. Bước nào thiếu thì làm hỏng (ví dụ Validate Field = No) thì thêm một dòng hành động, không kèm lý do. Xem nhóm 36.
+
+## 16. Tin nhắn Zalo hướng dẫn dùng tính năng
+
+Ngữ cảnh: chị Hân (YSKH) đang dùng mỗi item một BOM, công thức đổi thì phải mở item mới. Chị hỏi một item dùng nhiều BOM được không, rồi hỏi tiếp có phải mỗi lần tạo lệnh là chọn lại rồi refresh không. Người đọc là key user, đọc trên Zalo.
+
+**Trước** (máy viết)
+
+> Đúng rồi chị, mặc định BC luôn lấy version đã Certified có ngày bắt đầu gần nhất tính tới ngày của lệnh sản xuất. Nếu không có version nào hợp lệ thì nó lấy công thức gốc trên BOM.
+>
+> Vì vậy chị làm như sau:
+> - Item vẫn giữ 1 mã, 1 Production BOM. Công thức A, B, C tạo thành 3 version trong BOM đó, cả 3 đều chuyển Certified. Version nào dùng nhiều nhất thì để ngày bắt đầu mới nhất, nó sẽ là mặc định.
+> - Lệnh nào cần công thức khác thì chị mở lệnh sản xuất, ở phần Lines đổi cột Production BOM Version Code sang B hoặc C, rồi bấm Refresh Production Order.
+> - Lúc refresh nhớ bỏ tick "Lines", chỉ để tick "Component Need". Nếu tick Lines thì BC tính lại dòng và trả về version mặc định.
+>
+> Như vậy chị không phải mở thêm item mới nữa. Muốn so sánh 3 công thức thì chị vào Production BOM Version Comparison là thấy hết.
+
+**Sau** (Dũng sửa)
+
+> Dạ đúng rồi chị, mặc định BC luôn lấy version đã Certified có Starting Date gần nhất tính tới ngày của lệnh sản xuất. Nếu không có version nào hợp lệ thì nó lấy BOM gốc
+>
+> Để dùng cho nhu cầu trên chị làm như vầy nhé: Item vẫn giữ 1 mã, 1 Production BOM. Công thức A, B, C tạo thành 3 version trong BOM đó, cả 3 đều chuyển Certified. Version nào dùng nhiều nhất thì để Starting Date mới nhất, nó sẽ là mặc định.
+> Lệnh nào cần công thức khác thì trên Released Production Order, ở phần Lines đổi cột Production BOM Version Code sang B hoặc C, rồi bấm Refresh Production Order. Lúc refresh nhớ bỏ tick "Lines", chỉ để tick "Component Need". Nếu tick Lines thì BC tính lại dòng và trả về version mặc định.
+>
+> Ngoài ra, nếu muốn so sánh 3 công thức thì chị vào Production BOM Version Comparison là thấy đc á
+
+Những gì đã đổi: bullet gộp thành đoạn, "ngày bắt đầu" trả về "Starting Date", "mở lệnh sản xuất" thành "trên Released Production Order", "công thức gốc trên BOM" thành "BOM gốc" theo đúng từ chị dùng. Câu kết nhắc lại cái lợi đã bị bỏ, phần so sánh chuyển thành một ý thêm mở bằng "Ngoài ra". Thêm "Dạ" ở đầu, câu dẫn nối vào nhu cầu của chị. Nội dung kỹ thuật giữ nguyên. Xem nhóm 36.
 
 ## Điều rút ra chung
 

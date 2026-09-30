@@ -2,7 +2,7 @@
 
 Agent skill giúp viết tài liệu tư vấn ERP bằng tiếng Việt mà không mang giọng văn AI.
 
-Skill này khác các công cụ "humanize" thông thường ở hai điểm. Thứ nhất, nó viết cho tiếng Việt, có xử lý những thứ chỉ tiếng Việt mới gặp như dấu nháy cong do Word tự đổi, gạch ngang dài, và phép lịch sự khi xưng hô với khách hàng. Thứ hai, ngoài bộ dấu hiệu chung, nó có 16 nhóm rút ra từ chính các tài liệu dự án bị trả về sửa lại, nên bắt được những lỗi mà danh sách từ ngữ không bắt được.
+Skill này khác các công cụ "humanize" thông thường ở hai điểm. Thứ nhất, nó viết cho tiếng Việt, có xử lý những thứ chỉ tiếng Việt mới gặp như dấu nháy cong do Word tự đổi, gạch ngang dài, và phép lịch sự khi xưng hô với khách hàng. Thứ hai, ngoài bộ dấu hiệu chung, nó có 24 nhóm rút ra từ chính các tài liệu dự án bị trả về sửa lại, nên bắt được những lỗi mà danh sách từ ngữ không bắt được.
 
 ## Skill làm gì
 
@@ -11,13 +11,13 @@ Hai việc:
 - **Viết và biên tập.** Áp lên bất kỳ đoạn văn xuôi nào gửi cho người đọc: email, FDD/FRD, Quick Guide, biên bản họp, nội dung slide, tài liệu bàn giao, commit message.
 - **Soi văn bản.** Chấm một văn bản theo thang yếu, trung bình, mạnh, kèm bằng chứng trích dẫn và ghi rõ giới hạn của việc phán đoán.
 
-## 29 nhóm dấu hiệu
+## 37 nhóm dấu hiệu
 
 Chia làm hai phần.
 
 **Nhóm 1 đến 13** lấy từ [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) do WikiProject AI Cleanup duy trì: thổi phồng ý nghĩa, phân tích rỗng ở đuôi câu, giọng quảng cáo, song song phủ định, né động từ "là" và "có", bộ ba, và các nhóm khác.
 
-**Nhóm 14 đến 29** rút từ tài liệu dự án thật, không có trong bài gốc vì bài đó viết cho văn bách khoa:
+**Nhóm 14 đến 37** rút từ tài liệu dự án thật, không có trong bài gốc vì bài đó viết cho văn bách khoa:
 
 | Nhóm | Lỗi |
 |---|---|
@@ -37,6 +37,14 @@ Chia làm hai phần.
 | 27 | Không đồng bộ với phần còn lại của tài liệu |
 | 28 | Đề xuất vượt xa phạm vi được hỏi |
 | 29 | Đưa giải pháp khi chỉ được yêu cầu mô tả hiện trạng |
+| 30 | GAP List và FDD mức BA trượt sang giọng dev |
+| 31 | Mô tả logic lấy dữ liệu vòng vo |
+| 32 | Bảng phân rã công việc, ước lượng và tiến độ |
+| 33 | Ghi chú giải thích cách đọc bảng |
+| 34 | Đoạn kết tóm tắt lại bài |
+| 35 | Trình bày file Excel bàn giao |
+| 36 | Hướng dẫn xử lý sự cố cho người dùng viết như báo cáo phân tích |
+| 37 | Ghi chú viết cho người lập file, không cho người nhận |
 
 Ví dụ nhóm 16. Viết `Round(số tiền, 1 đồng)` thay vì `Currency."Amount Rounding Precision"` làm người đọc tưởng con số 1 được ghi cứng trong code, và tưởng dòng đầu tiên không áp tham số đó. Tên thật tra ngược được, chữ tự đặt thì không.
 
@@ -56,7 +64,7 @@ Và câu kiểm tra cuối cho cả đoạn: dán nguyên đoạn này sang tài
 
 ```
 natural-writing/
-├── SKILL.md                        409 dòng, 29 nhóm dấu hiệu và quy trình rà 8 bước
+├── SKILL.md                        754 dòng, 37 nhóm dấu hiệu và quy trình rà 8 bước
 └── references/
     ├── cum-tu-can-tranh.md         11 nhóm từ và cụm từ, tiếng Việt và tiếng Anh, kèm từ thay thế
     ├── dau-vet-ky-thuat.md         9 nhóm vết định dạng và mã đánh dấu của từng chatbot
@@ -109,4 +117,4 @@ Nếu né sạch mọi thứ trong danh sách thì câu văn sẽ cụt lủn v�
 
 Nhóm 1 đến 13 dựa trên [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), do [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup) duy trì, phát hành theo CC BY-SA 4.0.
 
-Nhóm 14 đến 29, các ví dụ và toàn bộ phần tiếng Việt là nội dung mới, phát hành theo MIT. Xem file LICENSE.
+Nhóm 14 đến 37, các ví dụ và toàn bộ phần tiếng Việt là nội dung mới, phát hành theo MIT. Xem file LICENSE.

@@ -35,7 +35,7 @@ Thứ tự ưu tiên khi biên tập:
 
 ### 2.1 Thổi phồng ý nghĩa
 
-đóng vai trò then chốt · đóng vai trò quan trọng · giữ vai trò không thể thiếu · là minh chứng cho · khẳng định vị thế · để lại dấu ấn sâu đậm · mở ra một chương mới · bước ngoặt quan trọng · cột mốc đáng nhớ · nâng tầm · tạo nên sự khác biệt · góp phần không nhỏ · có ý nghĩa đặc biệt quan trọng · thể hiện rõ nét · minh chứng sống động · ghi dấu ấn · đặt nền móng cho · phản ánh xu thế chung
+đóng vai trò then chốt · đóng vai trò quan trọng · giữ vai trò không thể thiếu · là minh chứng cho · khẳng định vị thế · để lại dấu ấn sâu đậm · mở ra một chương mới · bước ngoặt quan trọng · cột mốc đáng nhớ · nâng tầm · tạo nên sự khác biệt · góp phần không nhỏ · có ý nghĩa đặc biệt quan trọng · thể hiện rõ nét · minh chứng sống động · ghi dấu ấn · đặt nền móng cho · phản ánh xu thế chung · không thể phủ nhận · vượt bậc
 
 Thay bằng: dữ kiện cụ thể, hoặc bỏ hẳn câu.
 
