@@ -1,0 +1,12 @@
+{
+  "name": "erp-doc-voice",
+  "description": "Agent skill viet tai lieu tu van ERP bang tieng Viet ma khong mang giong van AI. 40 nhom dau hieu, 13 nhom theo Wikipedia Signs of AI writing va 27 nhom rut tu tai lieu du an that.",
+  "author": {
+    "name": "Dinh Tien Dung",
+    "url": "https://github.com/dinhtiendungerp"
+  },
+  "skills": [
+    "./natural-writing"
+  ],
+  "homepage": "https://github.com/dinhtiendungerp/erp-doc-voice"
+}
