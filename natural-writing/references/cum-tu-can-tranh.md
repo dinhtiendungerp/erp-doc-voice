@@ -211,6 +211,8 @@ Hai lưu ý khi áp dụng:
 
 Tương ứng tiếng Việt hay gặp trong văn dịch: tận dụng · khai thác tối đa · toàn diện · mạnh mẽ · liền mạch · sâu sắc · đáng kể · vô cùng · hết sức · then chốt · cốt lõi · tối ưu · vượt trội
 
+Cùng họ nhưng hay lọt vào nhãn của bảng chứ không nằm trong câu văn: "cốt lõi" và "mở rộng" làm mức ưu tiên của đầu việc (PM bắt "nghe AI quá vậy", 08/10/2026), thay bằng "Chính" và "Làm thêm". Cột Hình thức chỉ dùng Onsite, Online, Offsite, không dùng "Văn phòng".
+
 ---
 
 ## 5. Vết hội thoại
@@ -298,6 +300,7 @@ Xem nhóm 20 trong SKILL.md. Quy tắc: dùng đúng từ người trong nghề 
 | Địa chỉ (dòng 2) (nhãn của `Address 2`) | Địa chỉ (nối dài) |
 | Giá vốn đơn vị (nhãn của Item `Unit Cost`) | Giá vốn theo đơn vị lưu kho |
 | Giá bán trên thẻ hàng (nhãn của Item `Unit Price`) | Giá bán chung của hàng |
+| trường có sẵn trên thẻ mặt hàng, khai trên thẻ mặt hàng | trường có sẵn trên mặt hàng, khai cho từng mặt hàng |
 
 Hai lỗi phụ đi kèm: chọn từ nặng hơn mức cần ("luật" thay "quy tắc", "di trú" thay "chuyển"), và thêm chữ chính xác hóa thừa ("tài khoản dịch vụ" khi "tài khoản" đã đủ).
 
