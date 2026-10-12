@@ -423,7 +423,7 @@ Chỗ nào chưa kiểm chứng được thì đưa vào mục câu hỏi chưa 
 
 Bị bắt ở GAP List khách D (Recipe Version theo ngày), sau khi đã được nhắc "mô tả dưới góc độ BA". Ba lỗi cụ thể:
 
-- **Mở giải pháp bằng cấu trúc code.** "Codeunit NWV ISG Recipe Version Mgt. có ba hàm và một bảng trạng thái:" rồi liệt kê hàm. Người ký GAP List là khách hàng, họ không cần biết có mấy hàm. Viết: "Thêm chức năng Xử lý version theo ngày, gồm action trên Recipe Card, bảng lịch sử và bảng trạng thái", rồi mô tả từng thứ làm gì bằng lời.
+- **Mở giải pháp bằng cấu trúc code.** "Codeunit NWV Recipe Version Mgt. có ba hàm và một bảng trạng thái:" rồi liệt kê hàm. Người ký GAP List là khách hàng, họ không cần biết có mấy hàm. Viết: "Thêm chức năng Xử lý version theo ngày, gồm action trên Recipe Card, bảng lịch sử và bảng trạng thái", rồi mô tả từng thứ làm gì bằng lời.
 - **Dẫn object ID vào cột Solution hoặc tên Business Process.** "(Cod60004, Rep60005)" thay vì "tool Item Positive Posting hiện có". Object ID chỉ để ở sheet Object List hoặc Ghi chú kỹ thuật cho dev.
 - **Đưa deliverable dự án vào giải pháp.** "Quick Guide cho Data: tạo version mới, đóng version cũ" không phải giải pháp phần mềm; nó thuộc kế hoạch triển khai. Bỏ khỏi cột Solution.
 
@@ -697,6 +697,28 @@ Sáu chỗ khác bản nháp:
 - **Dùng từ team dùng**: "lot" chứ không "lô", "pcs", "rush", "up". Giọng nội bộ: "á chị", "coi đc ko", có thể có ":D".
 
 Kiểm tra: tin nhắn gửi người phụ trách có câu nào báo việc mình đã làm hay hẹn việc mình sẽ làm khi họ chưa gật đầu không? Người nhận là consultant mà câu giải pháp chỉ có "hệ thống tự xử lý", không có chứng từ, field hay giá trị nào không?
+
+**Cùng nhóm: hướng dẫn xử lý tạm một sự cố vận hành, gửi người trực hệ thống.** Tình huống ở một dự án retail, tháng 10/2026: job Data Director đẩy dữ liệu lên BC SaaS bị treo OnHold trên host DD-LSC, chưa rõ nguyên nhân gốc. PM nhờ "gửi phản hồi cho khách hàng để xử lý tạm và detect nguyên nhân nếu gặp lại". Bản nháp đầu là email bốn mục (hiện tượng, kết quả kiểm tra, xử lý tạm, theo dõi), có Event Viewer, lưu ý bảo mật log, câu hẹn nâng cấp bản DD. Bị nhắc "ngắn gọn thôi", bản thứ hai vẫn là email có tiêu đề, "Dear anh/chị", câu báo "em đã release, dữ liệu đã đồng bộ đủ". PM gửi bản sau:
+
+> Như trao đổi, các job đồng bộ giao dịch bị treo trên host DD-LSC ở trạng thái OnHold, nên dữ liệu không lên được BC. Nguyên nhân gốc chưa xác định được vì lúc xảy ra lỗi chưa bật log chi tiết.
+> Nếu gặp lại, em xử lý tạm như sau:
+>
+> 1. Mở Job Monitor, kết nối tới host DD-LSC, port 16860.
+> 2. Chuột phải từng dòng đang OnHold (company A và company B), chọn Release Jobs off Hold. Nhớ là chọn từ cũ nhất đến mới nhất. Lúc release theo dõi nếu các job Hold mà tự chuyển sang được Processing thì em ko cần bấm release thủ công nữa nhé.
+> 3. Không chọn Cancel Job vì job sẽ bị hủy, dữ liệu sẽ không được đồng bộ.
+>
+> Trước khi release, vô màn hình Job Monitor và gửi anh file log trong C:\ProgramData\LS Retail\Data Director\Log trên máy DD-LSC. Anh đã bật log chi tiết sẵn, có log là xác định được nguyên nhân.
+
+Sáu chỗ khác bản nháp:
+
+- **Người làm theo hướng dẫn là ai thì viết cho người đó.** "Khách hàng" trong lời nhờ thật ra là người trực hệ thống bên khách, người đã cùng xử lý sự cố, nên xưng "anh - em" và viết như tin nhắn, không tiêu đề, không "Dear", không "Thanks & Best Regards". Chưa rõ người nhận và kênh gửi (email hay chat) thì hỏi một câu trước khi soạn.
+- **Người nhận đã cùng xử lý thì mở bằng "Như trao đổi", không kể lại việc mình đã làm.** Bỏ câu "em đã release, dữ liệu đã đồng bộ đủ" và đoạn "kết nối lên BC và dữ liệu đều bình thường". Chỉ giữ một câu hiện tượng và một câu nói thẳng là chưa rõ nguyên nhân, kèm lý do.
+- **Hướng dẫn thao tác có thứ tự thì đánh số.** Bullet chỉ hợp với các mục ngang hàng.
+- **Hướng dẫn vận hành phải có thứ tự xử lý và điểm dừng.** Bản nháp chỉ có "release các dòng OnHold". PM thêm hai thứ chỉ người đã ngồi xử lý mới biết: làm từ job cũ nhất đến mới nhất, và khi thấy job tự chuyển sang Processing thì dừng, không bấm thủ công nữa. Người trực cần biết làm tới đâu thì thôi, không chỉ cần biết bấm vào đâu.
+- **Việc nhờ thu thập cho lần sau chỉ giữ thứ đủ để chẩn đoán.** Bỏ Event Viewer, lưu ý bảo mật, câu hẹn nâng cấp phiên bản. Còn lại một việc là gửi file log, kèm một câu lý do để người nhận chịu làm ("có log là xác định được nguyên nhân").
+- **Giọng nội bộ**: "Nhớ là", "ko cần", "vô màn hình", "nhé".
+
+Kiểm tra: người trực đọc xong có biết bắt đầu từ dòng nào, khi nào thì dừng, và trước khi làm phải lấy gì gửi lại không? Có câu nào kể việc mình đã làm mà người nhận đã chứng kiến không?
 
 ### 37. Ghi chú viết cho người lập file, không cho người nhận
 
@@ -999,3 +1021,19 @@ Người dùng gửi lại file đã chỉnh là nguồn học tốt nhất, vì
 ### Viết cho đội phát triển khi tư vấn đưa code
 
 README, ghi chú gửi kèm mã nguồn bản mẫu không viết theo giọng "dev đọc code đã kiểm, làm đúng yêu cầu, không phải nghiên cứu lại từ đầu". Đội phát triển nhạy cảm khi bộ phận chức năng đưa code, câu kiểu đó đọc như chỉ việc cho dev (bị nhắc 07/10/2026). Viết bản mẫu là công cụ kiểm thiết kế: nêu nó chứng minh được điểm nào chạy trên chuẩn, giới hạn của nó (chưa cài gói nào, phần nào giả lập), và nói rõ cách tổ chức code, hiện thực do đội phát triển quyết định. Bỏ các câu ra lệnh cho bản thật ("bản thật làm trên...", "dải id theo...").
+
+Tin nhắn chat gửi link repo cho dev (12/10/2026). Bản tôi soạn có bốn đoạn: lý do dựng bản mẫu, "anh xem cho vui thôi", lệch thì lấy FDD, ngày công vẫn theo anh ước lượng. PM tự viết lại:
+
+> Anh ơi em thấy vụ gọi api 2 lần nó cũng gặp lại vấn đề là dữ liệu đã insert rồi, thì đến đoạn gọi api post lỗi. Lúc làm FDD có mấy chỗ em không chắc chạy được ko giống như cái yc là rollback khi post lỗi, nên em dựng thử mẫu trên mt demo để xem thử. Chạy thử thì thấy ok, với lại cũng cần điều chỉnh thêm mấy chỗ về logic, em có cập nhật vào FDD á.
+>
+> Anh xem thử các case đã test coi còn lủng gì ko nha [link], với lại trong này em cũng có để code dựng mẫu, anh xem thử coi dùng lại đc gì ko nha, em làm để kiểm luồng nên code chắc chưa chuẩn, chưa tính performance. Anh cứ làm theo cách của anh nha, cái này chỉ để trực quan hơn nhu cầu của FDD thôi á.
+
+Năm chỗ khác:
+
+- **Mở bằng vấn đề kỹ thuật cụ thể dev đang quan tâm**, không mở bằng "em gửi anh repo". Câu đầu nói đúng tình huống lỗi (gọi API hai lần, dữ liệu đã insert rồi bước post lỗi), nên dev thấy ngay bản mẫu trả lời câu hỏi gì.
+- **Nhờ dev soi test case, không nhờ dev đọc code.** "coi còn lủng gì ko" đặt dev vào vai người rà, người giỏi hơn mình ở phần kỹ thuật. Code chỉ là phần phụ: "coi dùng lại đc gì ko".
+- **Tự hạ đúng mức, không hạ quá.** "code chắc chưa chuẩn, chưa tính performance" là đủ khiêm tốn. "xem cho vui thôi" thì hạ giá trị chính thứ mình nhờ người ta xem (nhóm 23).
+- **Không đặt luật cho dev trong tin nhắn.** Bỏ "lệch thì lấy FDD", "ngày công vẫn theo anh ước lượng", danh sách thư mục nên xem, CHANGELOG. Mấy câu đó đọc như phòng thủ hoặc giao việc. Mục đích nói một câu: "chỉ để trực quan hơn nhu cầu của FDD".
+- **Giọng chat nội bộ với dev**: xưng em gọi anh, "á", "nha", "ko", "đc", "yc", "mt", và giữ từ dev dùng (api, insert, post, rollback, case, performance). Không chia đoạn theo ý như email, không bullet.
+
+Kiểm tra: dev đọc câu đầu có biết ngay bản mẫu giải quyết vấn đề gì của họ không? Có câu nào đang dặn dev phải làm gì không?
