@@ -431,6 +431,8 @@ Cùng lần đó, ba từ bị bắt vì nghe như máy dịch: "nạp" (nạp v
 
 Kiểm tra trước khi giao GAP List: đọc cột Solution như thể mình là khách hàng. Gặp chữ "codeunit", "hàm", "subscriber", "event", mã object thì hạ xuống mức chức năng; gặp tài liệu, training, quick guide thì chuyển sang phần kế hoạch.
 
+FDD giao đội phát triển của NaviWorld cũng viết ở mức này, vì khách xem được folder Design. Bị bắt ngày 12/10/2026 ở FDD tích hợp khách A: "sao lại dùng từ subscriber, codeunit trong FDD". Câu đã lên FDD là "Gọi codeunit ghi sổ chuẩn với SetSuppressCommit(true) và gọi thẳng, không bắt lỗi bằng if Codeunit.Run hay TryFunction", đề xuất tiếp theo còn thêm "subscriber", "cờ đang ghi sổ". FDD giữ quy tắc theo chức năng: "Ghi số lượng, lô và ghi sổ nằm trong cùng một lần xử lý, không lưu dữ liệu giữa chừng, kể cả bên trong chức năng ghi sổ chuẩn. Ghi sổ lỗi thì hoàn lại toàn bộ." Tên codeunit, hàm, tham số, cách gọi đưa vào file ghi chú kỹ thuật cho dev (nội bộ, không nằm trong folder khách). Tên đối tượng, field, trang chuẩn (Warehouse Receipt, Qty. to Receive, Item Tracking Lines) vẫn giữ trong FDD.
+
 Issue Log phải gọn hơn FDD một bậc. Bị bắt ngày 01/10/2026, hai lượt liền: "cột Description viết lại cho ngắn gọn thôi", rồi "cột NaviWorld Solution / Remark cũng viết ngắn lại". Bản dài kể đủ các điều kiện loại lot (hết hạn dùng, Blocked, Inspection Status, Sales Expiration Date, Minimum Sales Shelf Life, lot đã gán cho phiếu khác) và cả câu báo kết quả sau khi bấm nút. Bản sửa gom lại thành "loại trừ lot không được bán". Description còn hai khối Hiện trạng và Cần sửa, mỗi khối hai ba dòng. Điều kiện chi tiết đã nằm trong FDD thì Issue Log không chép lại.
 
 ### 31. Mô tả logic lấy dữ liệu vòng vo
