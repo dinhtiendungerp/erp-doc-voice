@@ -395,6 +395,30 @@ Ba điều rút ra:
 
 Kiểm tra: bỏ câu này đi, người nhận mở file ra có hiểu sai hay làm sai gì không? Không thì bỏ.
 
+**Bị chê "dài dòng" thì xem phần nào dài: email hay lời mình viết kèm trong chat.** Email gửi WMS file đặc tả và mapping tích hợp khách A, 15/10/2026, PM soạn cho Trang gửi. Bản nháp đầu có đủ các ý được giao, kèm năm ghi chú trong chat (xưng hô, Cc đề xuất, hạn trả lời, file PDF cũ trên SharePoint, bản Excel trong máy đã cũ). PM nói "dài dòng quá vậy". Tôi cắt email còn bốn câu, bỏ tên cột cần điền, danh sách nội dung tài liệu API, chữ API v2.0. Bản PM chốt gần như bản nháp đầu:
+
+> Dear chị Linh,
+>
+> NaviWorld gửi hai file tài liệu tích hợp Business Central với WMS:
+> - khách A_WMS_Integration Specification_v1.0.docx: tài liệu đặc tả tích hợp
+> - khách A_WMS_Integration Mapping_v1.0.xlsx: mapping trường, mỗi message một sheet
+>
+> Với các message chiều BC qua WMS, có đề cập các field mà BC sẽ gửi, để WMS tham khảo khi thiết kế API nhận. Nhờ WMS điền tên field tương ứng vào cột "Trường WMS" và "Ghi chú của WMS" trong file Excel, đồng thời gửi giúp em tài liệu API của WMS (tên trường, đường dẫn API, cách xác thực, cấu trúc response).
+>
+> Với các message chiều WMS qua BC, WMS gọi API v2.0 của BC theo endpoint và ví dụ request, response trong tài liệu đặc tả.
+>
+> Theo lịch của WMS, hai bên viết đặc tả tích hợp từ 15-21/10, review và ký từ 22-23/10. Nhờ WMS gửi lại file Excel và tài liệu API trước ngày 21/10 nhé.
+>
+> Có gì chưa rõ chị cứ trao đổi lại với em.
+
+Năm điều rút ra:
+
+- **Ý người giao việc đã liệt kê thì email giữ đủ.** Kể cả danh sách ngắn trong ngoặc như "tên trường, đường dẫn API, cách xác thực, cấu trúc response": đó là thứ người nhận phải gửi lại, thiếu thì họ gửi thiếu hoặc hỏi lại. Phần thừa nằm ở năm ghi chú trong chat. Bản nháp giao kèm tối đa một hai dòng, chỉ điều người dùng phải sửa trước khi gửi.
+- **Email cho đối tác kỹ thuật dùng chữ nói chuyện.** "BC", "field", "15-21/10", "22-23/10". Quy ước viết đủ "Business Central", "trường", "từ 15/10 tới 21/10" là của tài liệu, không áp cho email. Tên cột trong file thì chép đúng chữ trong file ("Trường WMS").
+- **Hỏi ai đứng tên gửi trước khi chọn xưng hô.** Email này PM soạn cho Trang gửi, nên "chị" là cách Trang gọi Linh, không phải cách PM gọi. Bản nháp mặc định người gửi là PM, lại không biết gọi Linh là anh hay chị nên viết "WMS cứ trao đổi lại với em". PM sửa thành "chị cứ trao đổi lại với em". Chưa rõ người gửi hay xưng hô thì hỏi người dùng một câu, không lấy tên công ty thay đại từ để né. "Nhờ WMS điền", "Nhờ WMS gửi lại" vẫn giữ, vì đó là việc của cả bên WMS.
+- **Lời chào một người nhận chính.** Bản nháp chào "chị Linh, anh Hùng", PM chỉ chào chị Linh, đầu mối phân tích nghiệp vụ. Người còn lại nằm ở To hoặc Cc.
+- **Mốc lịch ghi đủ việc hai bên làm ở mốc đó**: "review và ký từ 22-23/10", không chỉ "ký". PM cũng bỏ câu chỉ thư mục SharePoint, email chỉ còn tên hai file.
+
 ### 27. Không đồng bộ với phần còn lại của tài liệu
 
 Viết thêm một mục vào tài liệu có sẵn thì mục đó phải theo đúng quy ước đang dùng, không tự dựng cấu trúc riêng.
@@ -678,6 +702,26 @@ Có sáu chỗ sửa:
 
 Kiểm tra: đọc tin nhắn trên khung chat điện thoại. Có dấu đầu dòng nào đứng trước một câu nói với người đọc không? Có chữ nào người dùng phải dịch ngược ra tiếng Anh mới tìm được trên màn hình không?
 
+**Cùng nhóm: tin nhắn Zalo hỏi lại khách để làm rõ một yêu cầu customize.** Tình huống ở một dự án retail, tháng 10/2026: key user nhờ thêm action rã BOM cả batch Item Journal (Document No. theo một tiền tố riêng, recipe LS lồng nhiều cấp). Bản tôi soạn có năm câu hỏi, câu nào cũng kèm gợi ý, thêm câu xin batch mẫu, mở bằng "Em có xem sơ bộ yêu cầu của chị". PM gửi bản sau:
+
+> để hiểu đúng chị xác nhận giúp em mấy ý nha:
+>
+> 1. Trong recipe của BTP có component lại là BTP khác có recipe? Trường hợp đó, chị có muốn rã hết tới cấp cuối cùng ko? Có trường hợp ngoại lệ mà ko muốn rã ko?
+> 2. Cùng một NVL rã ra từ nhiều BTP, hoặc NVL đó đã có sẵn trong batch của Item Journal, thì chị muốn cộng gộp thành 1 dòng (group by) hay giữ riêng từng dòng (line by line)?
+> 3. Dimension chuẩn hỏi trên từng dòng. Chạy cả batch thì chị muốn hỏi 1 lần rồi áp cho tất cả, hay hỏi riêng từng mã gốc?
+>
+> Còn để phát triển theo yc này, nhờ chị trao đổi nội bộ rồi thông qua anh Nam gửi yêu cầu qua mail hoặc ticket giúp em nhé.
+
+Năm chỗ khác bản nháp:
+
+- **Chỉ hỏi điều khách phải quyết và câu trả lời làm đổi thiết kế.** Câu "có ghi mã gốc vào Description không" là ý mình tự thêm, khách không nêu. Câu "mã không có recipe thì để nguyên đúng không" thì consultant tự quyết được. Cả hai bị bỏ. Câu xin batch mẫu cũng bỏ: hỏi mẫu là việc của bước phân tích sau khi có yêu cầu chính thức.
+- **Câu hỏi mở, không gài sẵn ví dụ của mình.** Bản nháp viết "ví dụ BTP đó có kiểm tồn riêng, hoặc BOM Method khác Explode at Posting". PM tách thành hai câu: mặc định có rã hết không, rồi có ngoại lệ nào không. Gợi ý trước thì khách dễ chọn theo gợi ý thay vì nói trường hợp thật của họ.
+- **Phương án lựa chọn kèm tên kỹ thuật ngắn trong ngoặc**: "(group by)", "(line by line)". Hai chữ đó dùng lại được khi viết FDD và trao đổi với dev. Dùng "component", "batch của Item Journal" như trên màn hình.
+- **Hỏi để hiểu, không hứa làm.** Bỏ câu "làm được chị". Khách chưa gửi yêu cầu qua kênh chính thức thì tin nhắn chỉ làm rõ nhu cầu, câu cuối chỉ kênh gửi yêu cầu (trao đổi nội bộ, qua người phụ trách bên khách, mail hoặc ticket).
+- **Mở thẳng vào việc nhờ**: "để hiểu đúng chị xác nhận giúp em", không kể "em có xem sơ bộ".
+
+Kiểm tra: từng câu hỏi, nếu khách trả lời thì thiết kế có đổi không? Có câu nào mình tự quyết được không? Có câu nào đang gợi sẵn đáp án không? Có câu nào hứa làm khi yêu cầu chưa đi qua kênh chính thức không?
+
 **Cùng nhóm: tin nhắn Teams nội bộ đề xuất giải pháp cho người trong nhóm dự án.** Tình huống ở khách B, tháng 09/2026: kho xuất sai lô so với hệ thống. Chị Hoa (consultant phụ trách) gợi ý upload lô thực tế bằng Excel lên Warehouse Shipment trước khi post. Bản nháp máy viết có sáu đoạn: lý do cách của chị vướng, đề xuất, "em đã test trên sandbox" kèm kết quả, phần kiểm soát trả hàng, điều kiện phía kho, và câu hẹn viết FDD. PM gửi bản sau:
 
 > Chị Hoa ơi em có trao đổi với chị Mai thì cách up lot bằng Excel lên Warehouse Shipment trước khi post vẫn vướng chỗ cũ á chị, kho phải có hàng gấp cho xe thì họ xuất đại theo FEFO :D mà hầu như các đơn đều rush nên ko có thông tin lot theo thực tế trước post á, kể cả trên excel, thông thường họ ghi nhanh trên giấy.
@@ -719,6 +763,36 @@ Sáu chỗ khác bản nháp:
 - **Giọng nội bộ**: "Nhớ là", "ko cần", "vô màn hình", "nhé".
 
 Kiểm tra: người trực đọc xong có biết bắt đầu từ dòng nào, khi nào thì dừng, và trước khi làm phải lấy gì gửi lại không? Có câu nào kể việc mình đã làm mà người nhận đã chứng kiến không?
+
+**Cùng nhóm: hướng dẫn kế toán khách sửa chứng từ đã post.** Tình huống ngày 12/10/2026: kế toán khách post 5 phiếu item journal hàng hủy nhưng để trống Gen. Bus. Posting Group, nên tiền vào 621 thay vì 632. Anh hỏi đảo lại thế nào vì không reverse được. Bản tôi soạn có bảng 14 dòng (phiếu, mã hàng, kho, số lượng, Item Ledger Entry No.), dặn chọn đơn vị cơ sở, dặn khai Lot "nếu mã có quản lý Lot", thêm bước điền Applies-to Entry cho dòng xuất lại, đoạn kiểm G/L kèm tổng tiền, và câu nhắc "từ giờ nhớ chọn DISPOSAL". PM gửi bản sau:
+
+> Các phiếu đã post thì mình đảo trên Item Journal, làm 2 bước sau.
+>
+> B1 - Đảo phiếu cũ
+> 1. Với mỗi dòng trong bảng bên dưới, anh tạo một dòng Positive Adjmt. Posting Date 07/10, Item, Location, Quantity giống dòng cũ. Gen. Bus. Posting Group để trống như dòng cũ.
+> 2. Ở field Applies-from Entry, anh điền số Item Ledger Entry của dòng cũ. Field này nếu đang ẩn, bật bằng Personalize.
+> 3. Post. Dòng nhập lại sẽ lấy đúng giá vốn lúc xuất, nên bút toán đảo khớp, vd: N152200/155200, C621310/621320.
+>
+> B2 - Post lại đúng tài khoản
+> 1. Anh tạo lại các dòng Negative Adjmt. như cũ, và chọn Gen. Bus. Posting Group = DISPOSAL.
+> 2. Post. Kết quả: Nợ 632200, Có 152200/155200.
+>
+> Ở cả 2 bước, nhớ điền lại dimension cho 3 dòng: [...] => xem ILE để biết chi tiết
+>
+> Sau đó anh chạy Adjust Cost - Item Entries.
+
+Sáu chỗ khác bản nháp:
+
+- **Không chép lại dữ liệu người nhận tự xem được trên hệ thống.** Bảng 14 dòng bị bỏ, dimension từng dòng chỉ còn "xem ILE để biết chi tiết". Người nhận đang ngồi trước BC, mở Item Ledger Entries là có đủ số, chính xác hơn bảng chép tay và không lệch khi có dòng mới. Tin nhắn chỉ nói làm gì và tra ở đâu.
+- **Không thêm bước không bắt buộc.** Bước điền Applies-to Entry cho dòng xuất lại chỉ để số vào 632 khớp tròn với số đã đảo. PM hỏi "sao phải thêm bước này chi", và bỏ. Hỏi từng bước: bỏ bước này thì làm có hỏng không? Không hỏng thì bỏ, dù nó làm kết quả đẹp hơn. Cùng lúc phải trả lời được câu hỏi kỹ thuật đi kèm (dòng nhập có Applies-from còn open không) bằng cơ chế thật, không đoán.
+- **Không ghi nhánh mình chưa kiểm.** Câu "mã nào có quản lý Lot thì khai Lot" có mặt vì tôi không biết mã nào có Lot. Đó là chỗ phải tra trước (Item Tracking Code trên mặt hàng), không phải chỗ đẩy điều kiện cho người đọc tự lo (nhóm 7, 38). Tương tự, "Field này nếu đang ẩn" thay cho "Trường này ẩn sẵn": không khẳng định điều mình không thấy trên màn hình của họ.
+- **Viết theo ký hiệu của người đọc.** Kế toán đọc "N152200/155200, C621310/621320" nhanh hơn "Nợ 152200/155200, Có 621310/621320". Gọi "field" như người dùng BC nói, không gọi "trường". Nhãn bước theo cách PM hay viết trong chat: "B1 - ", "B2 - ", không dùng "Lượt 1".
+- **Trả lời đúng câu được hỏi, không thêm phần kiểm và phần nhắc.** Anh Khoa hỏi cách đảo. Đoạn kiểm G/L kèm tổng tiền và câu "từ giờ nhớ chọn DISPOSAL" bị bỏ: người hỏi đã biết nguyên nhân từ tin trước, và kế toán tự biết kiểm sổ (nhóm 15, 34).
+- **Bỏ chi tiết mặc định.** "Unit of Measure chọn đơn vị cơ sở" bị bỏ, vì dòng journal tự lấy Base UoM của mặt hàng.
+
+Cùng lần này, trước khi soạn tin, tôi còn sai ở khâu kiểm dữ kiện: đưa Inventory Posting Group vào danh sách cần xem trong khi câu hỏi chỉ về tài khoản đối ứng, bảo xem General Posting Setup thay vì xem bút toán đã post (PM: "lỡ may post xong đổi setup sao"), rồi bảo xem cột Gen. Bus. Posting Group trên G/L Entries trong khi bút toán giá vốn kho không ghi cột đó. Muốn biết đã post vào đâu thì xem entry đã post (G/L Entries, Value Entries). Setup chỉ cho biết cấu hình hiện tại, dùng để giải thích vì sao và để biết từ giờ post sẽ vào đâu.
+
+Kiểm tra: tin nhắn có bảng hay danh sách số nào người nhận mở BC là thấy không? Có bước nào bỏ đi mà vẫn làm đúng không? Có câu "nếu..." nào mình kiểm được mà chưa kiểm không?
 
 ### 37. Ghi chú viết cho người lập file, không cho người nhận
 
@@ -953,11 +1027,11 @@ Viết trước, rà sau. Vừa viết vừa tự kiểm duyệt thì văn sẽ 
    - File và slide giao khách còn câu nào kể về môi trường demo, phiên bản app, Work Date của bản demo, cách dựng số liệu, bước nội bộ của NWV hay việc còn chờ chốt không? Còn nhãn nào tả việc của người dựng file ("nạp") thay cho việc người nhận làm ("điền") không? (nhóm 37)
    - Các khối cùng cấp (nhập và xuất, lệnh và kết quả) có chia dòng cùng một cách, dùng cùng bộ mã ở mọi sheet không? Thời điểm kích hoạt của từng loại chứng từ có lấy đúng quy trình thật của nó không?
    - Bảng tổng hợp đã tách riêng phần làm cùng đối tác chưa, nếu phần đó thương lượng riêng?
-   - Email gửi kèm file: có đang chép lại chi tiết trong file, tự thêm việc nhờ xác nhận, hay đưa lập luận nội bộ không?
+   - Email gửi kèm file: có đang chép lại chi tiết trong file, tự thêm việc nhờ xác nhận, hay đưa lập luận nội bộ không? Ngược lại, có bỏ sót ý người giao việc đã liệt kê không? Đã biết ai đứng tên gửi để chọn xưng hô chưa, có lấy tên công ty thay cho anh, chị để né xưng hô không? Bị chê dài thì phần dài là email hay ghi chú mình viết kèm trong chat?
    - Trả lời thắc mắc của người dùng: câu đầu có gỡ đúng chỗ họ hiểu lầm không, có số chứng từ cụ thể nào khiến họ hỏi lại "sao lại là số này" không?
    - Đoạn cuối có đang tóm tắt lại bài không? Email thì kết bằng việc cần làm, tài liệu thì dừng ở mục cuối.
    - Hướng dẫn xử lý gửi người dùng: đã chỉ còn tình huống, hành động và danh sách `Field = giá trị` chưa, hay vẫn còn số field, cơ chế, field để mặc định?
-   - Tin nhắn Zalo hoặc Teams: có bullet nào là một câu nói với người đọc không? Tên field, tên trang có bị dịch sang tiếng Việt không, trang cần mở đã ghi kèm status chưa? Câu cuối có đang nhắc lại cái lợi mà người hỏi đã biết không? Gửi đồng nghiệp consultant thì có nói bằng cơ chế BC chưa, có báo trước kết quả hay bước tiếp theo khi người phụ trách chưa chốt hướng không?
+   - Tin nhắn Zalo hoặc Teams: có bullet nào là một câu nói với người đọc không? Tên field, tên trang có bị dịch sang tiếng Việt không, trang cần mở đã ghi kèm status chưa? Câu cuối có đang nhắc lại cái lợi mà người hỏi đã biết không? Gửi đồng nghiệp consultant thì có nói bằng cơ chế BC chưa, có báo trước kết quả hay bước tiếp theo khi người phụ trách chưa chốt hướng không? Hướng dẫn sửa chứng từ: có đang chép bảng số người nhận tự tra được trên BC không, có bước nào không bắt buộc không, có câu "nếu..." nào mình kiểm được mà chưa kiểm không?
    - Tài liệu chính thức còn khẩu ngữ không ("bỏ" khi nghĩa là loại trừ, "gán tay", "up"), còn tên giao diện bị dịch chữ không ("cây" thay cho treeview), còn nhánh xử lý cho dữ liệu khách không có không?
    - Câu thông báo của hệ thống trong FDD và code đã là tiếng Anh theo mẫu message của BC chưa? Hình chụp còn câu tiếng Việt không?
    - Tài liệu tích hợp: message đã đặt tên theo đối tượng Business Central chưa, message kết quả có đang mang tên chứng từ đã ghi sổ thay vì chứng từ nhận kết quả không, nhãn trên sơ đồ có còn mã trơn không, còn mục nào cho phần không làm không, bảng con đã thành API riêng chưa, luồng ngoại lệ đã tách tình huống kèm sơ đồ chưa, còn ô hay cột trạng thái nào không, phần đề xuất custom đã đủ bảng, field, API chưa? Message có lô đã chia cấp (header, chi tiết, lô) chưa, đã có khóa từng cấp, số tổng ở cấp dòng, trường đích có phải trường nhập được (không phải trường Base tự tính) và tên trường message có gần tên trường Business Central không, bảng trường hợp một-nhiều, quy tắc theo loại chứng từ, ví dụ message chưa? (nhóm 40)
