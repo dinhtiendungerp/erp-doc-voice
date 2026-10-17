@@ -4,6 +4,29 @@ Agent skill giúp viết tài liệu tư vấn ERP bằng tiếng Việt mà kh�
 
 Skill này khác các công cụ "humanize" thông thường ở hai điểm. Thứ nhất, nó viết cho tiếng Việt, có xử lý những thứ chỉ tiếng Việt mới gặp như dấu nháy cong do Word tự đổi, gạch ngang dài, và phép lịch sự khi xưng hô với khách hàng. Thứ hai, ngoài bộ dấu hiệu chung, nó có 27 nhóm rút ra từ chính các tài liệu dự án bị trả về sửa lại, nên bắt được những lỗi mà danh sách từ ngữ không bắt được.
 
+## Ví dụ
+
+Đoạn mở đầu FDD do AI viết:
+
+> Trong bối cảnh chuyển đổi số ngày càng mạnh mẽ, việc quản lý dữ liệu bán hàng đóng vai trò then chốt đối với doanh nghiệp bán lẻ. Tài liệu này không chỉ mô tả yêu cầu nghiệp vụ mà còn cung cấp một cái nhìn toàn diện về giải pháp...
+
+Skill chỉ ra bốn dấu hiệu (mở bài rỗng, thổi phồng, song song phủ định, đuôi phân từ rỗng) và viết lại bằng dữ kiện:
+
+> Tài liệu mô tả yêu cầu và thiết kế cho GAP SPF-014: đồng bộ đơn hàng Shopify về LS Central. Phạm vi gồm mapping trường dữ liệu, xử lý combo, và cách xử lý đơn lỗi. Không bao gồm phần thanh toán và hoàn tiền, đã tách sang SPF-018.
+
+Các ví dụ trước và sau khác (email, Quick Guide, slide, tài liệu tích hợp) ở [`vi-du-truoc-sau.md`](natural-writing/references/vi-du-truoc-sau.md).
+
+## Cài nhanh
+
+Claude Code:
+
+```
+/plugin marketplace add dinhtiendungerp/erp-doc-voice
+/plugin install erp-doc-voice@erp-doc-voice
+```
+
+Claude.ai, Cowork, Claude Desktop: upload [team-skill/natural-writing.zip](team-skill/natural-writing.zip) trong phần Skills của Settings. Các cách cài khác xem mục [Cài đặt](#cài-đặt).
+
 ## Skill làm gì
 
 Hai việc:
