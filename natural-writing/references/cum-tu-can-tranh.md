@@ -315,6 +315,10 @@ Trong tài liệu gửi khách hàng hoặc đối tác khi hai bên chưa chố
 | Vấn đề phát hiện | Điểm cần làm rõ |
 | Vấn đề và câu hỏi tiến độ | Điểm cần thống nhất về lịch |
 | cần WMS làm rõ mốc thật | điểm cần làm rõ khi chốt lịch chung |
+| HỎI <khách> TẠI SLIDE NÀY, Hỏi <khách>: (nhãn khung câu hỏi trên slide chiếu cho khách) | CẦN <khách> XÁC NHẬN, Cần <khách> xác nhận: |
+| NWV mong <khách> xác nhận (giọng xin) | Cần <khách> xác nhận |
+
+Hai dòng cuối là nhãn trên slide chiếu cho khách: chữ khách đọc thì nói điều hai bên cần chốt, không nhắc người trình bày phải hỏi gì, không xin. Câu nhắc người trình bày để trong notes (nhóm 37).
 
 ## 11. Rào đón chồng, tự hạ giá trị
 
